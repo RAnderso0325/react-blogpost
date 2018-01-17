@@ -5,8 +5,12 @@ import Post from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 var post = {
-	title: "DINOSAURS RULE",
-	author: "Stegasaurous",
+	title: "Dinosaurs Are Awesome",
+	authors: [
+	"Stealthy Stegosaurus",
+	"Tiny T-Rex",
+	"Ivory Iguanodon"
+	],
 	body: "check out this bodddddy prop",
 	comments: [
 	"Wow, first comment, great post",
@@ -15,5 +19,6 @@ var post = {
 	]
 }
 
-ReactDOM.render(<Post title={post.title} author={post.author} body={post.body} comments={post.comments} />, document.getElementById('root'));
+ReactDOM.render(<Post title={post.title} allAuthors={post.authors} body={post.body} comments={post.comments} />, 
+document.getElementById('root'));
 registerServiceWorker();
