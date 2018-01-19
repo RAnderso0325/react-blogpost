@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Link } from "react-router-dom";
 import './App.css';
+import Home from './Home.js';
+import Blog from './Blog.js';
+import About from './About.js';
+import Movies from './Movies.js';
+import Food from './Food.js';
 
-class Post extends Component {
+class App extends Component {
   render() {
     return (
-      <div className="Post">
-        <h1>{this.props.title}</h1>
-        {<Author authors={this.props.allAuthors} />}
-        <p>{this.props.body}</p>
-        <h3>Comments:</h3>
-        {<Comment comments={this.props.comments} />}
-      </div>
+      <Router>
+        <div className="App">
+          <nav>
+            <div className="nav-wrapper">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/blog">Main Blog</Link></li>
+                <li><Link to="/about">About ME</Link></li>
+                <li><Link to="/mymovies">What to Watch</Link></li>
+                <li><Link to="/myfood">What to Eat</Link></li>
+              </ul>
+            </div>
+          </nav>
+          <div className="container">
+          <Route exact path="/" component={Home} />
+          <Route path="/blog" component={() => <Blog post={this.props.post} />} />
+          <Route path="/about" component={About} />
+          <Route path="/mymovies" component={Movies} />
+          <Route path="/myfood" component={Food} />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
 
-class Author extends Component {
-  render() {
-    return (
-      <div className="Author">
-      {this.props.authors.map( authors => <p>Written by {authors}</p>)}
-      </div>
-    );
-  }
-}
-
-class Comment extends Component {
-  render() {
-    return (
-      <div className="Comment">
-      {this.props.comments.map( comments => <p>{comments}</p>)}
-      </div>
-    );
-  }
-}
-
-export default Post;
+export default App;
