@@ -4,6 +4,7 @@ import {
   Route, 
   Link } from "react-router-dom";
 import './App.css';
+import post from "./Data.js";
 import Home from './Home.js';
 import Blog from './Blog.js';
 import About from './About.js';
@@ -28,7 +29,7 @@ class App extends Component {
           </nav>
           <div className="container">
           <Route exact path="/" component={Home} />
-          <Route path="/blog" component={() => <Blog post={this.props.post} />} />
+          <Route path="/blog" component={() => <Blog post={post} />} />
           <Route path="/about" component={About} />
           <Route path="/mymovies" component={Movies} />
           <Route path="/myfood" component={Food} />

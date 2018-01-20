@@ -1,0 +1,15 @@
+{
+    "root": "build/",
+    "clean_urls": false,
+    "routes": {
+        "/**": "index.html"
+    },
+    "proxies": {
+        "/api/weather": {
+            "origin": "${WEATHER_API_URL}"
+        },
+        "/api/shakespeare": {
+            "origin": "${SHAKESPEARE_API_URL}"
+        }
+    }
+}
